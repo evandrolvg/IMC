@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnLimparOnClick(View v) {
         TextView lblResultado = (TextView) findViewById(R.id.lblResultado);
+        TextView lblResultado2 = (TextView) findViewById(R.id.lblResultado2);
 
         EditText txtIdade = (EditText) findViewById(R.id.txtIdade);
         EditText txtPeso = (EditText) findViewById(R.id.txtPeso);
@@ -80,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         txtAltura.setText("");
         sexo.setText("");
         lblResultado.setText("");
+        lblResultado2.setText("");
 
         btnMan.setBackgroundResource(R.drawable.man1);
         btnWoman.setBackgroundResource(R.drawable.woman1);
@@ -91,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnCalcularOnClick(View v){
         TextView lblResultado = (TextView)findViewById(R.id.lblResultado);
+        TextView lblResultado2 = (TextView)findViewById(R.id.lblResultado2);
 
         EditText txtIdade = (EditText) findViewById(R.id.txtIdade);
         EditText txtSexo = (EditText) findViewById(R.id.sexo);
@@ -120,177 +123,192 @@ public class MainActivity extends AppCompatActivity {
 
             if(idade <= 15){
                 if (txtSexo.getText().toString().equals("")) {
+                    lblResultado.setText("");
+                    lblResultado2.setText("");
                     Toast.makeText(getApplicationContext(), "Por favor, selecione um sexo.", Toast.LENGTH_SHORT).show();
-                }
+                    img.setImageResource(R.drawable.imc00);
+                }else{
+                    if (sexo.equals("M")) {
+                        String resultadoFormat = String.format("%.02f", resultado);
+                        lblResultado.setText("IMC: " + resultadoFormat);
+                        lblResultado2.setText("");
 
-                if (sexo.equals("M")) {
-                    if(idade == 6){
-                        if(resultado <= 14.5 && resultado <= 16.6){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 16.6 && resultado <= 17.9){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 18){
-                            img.setImageResource(R.drawable.imc_c03);
+                        if(idade == 6){
+                            if(resultado <= 14.5 && resultado <= 16.6){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 16.6 && resultado <= 17.9){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 18){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 7){
+                            if(resultado <= 15 && resultado <= 17.3){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 17.3 && resultado <= 19){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 19.1){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 8){
+                            if(resultado <= 15.6 && resultado <= 16.7){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 16.7 && resultado <= 20.2){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 20.3){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 9){
+                            if(resultado <= 16.1 && resultado <= 18.8){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 18.8 && resultado <= 21.3){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 21.4){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 10){
+                            if(resultado <= 16.7 && resultado <= 19.6){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 19.6 && resultado <= 22.4){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 22.5){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 11){
+                            if(resultado <= 17.2 && resultado <= 20.3){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 20.3 && resultado <= 23.6){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 23.7){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 12){
+                            if(resultado <= 17.8 && resultado <= 21.1){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 21.1 && resultado <= 24.7){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 24.8){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 13){
+                            if(resultado <= 18.5 && resultado <= 21.9){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 21.9 && resultado <= 25.8){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 25.9){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 14){
+                            if(resultado <= 19.2 && resultado <= 22.7){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 22.7 && resultado <= 26.8){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 26.9){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 15){
+                            if(resultado <= 19.9 && resultado <= 23.6){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 23.6 && resultado <= 27.6){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 27.7){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else{
+                            lblResultado.setText("Não foi possível calcular.");
+                            lblResultado2.setText("");
                         }
-                    }else if (idade == 7){
-                        if(resultado <= 15 && resultado <= 17.3){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 17.3 && resultado <= 19){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 19.1){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }else if (idade == 8){
-                        if(resultado <= 15.6 && resultado <= 16.7){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 16.7 && resultado <= 20.2){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 20.3){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }else if (idade == 9){
-                        if(resultado <= 16.1 && resultado <= 18.8){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 18.8 && resultado <= 21.3){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 21.4){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }else if (idade == 10){
-                        if(resultado <= 16.7 && resultado <= 19.6){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 19.6 && resultado <= 22.4){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 22.5){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }else if (idade == 11){
-                        if(resultado <= 17.2 && resultado <= 20.3){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 20.3 && resultado <= 23.6){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 23.7){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }else if (idade == 12){
-                        if(resultado <= 17.8 && resultado <= 21.1){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 21.1 && resultado <= 24.7){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 24.8){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }else if (idade == 13){
-                        if(resultado <= 18.5 && resultado <= 21.9){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 21.9 && resultado <= 25.8){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 25.9){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }else if (idade == 14){
-                        if(resultado <= 19.2 && resultado <= 22.7){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 22.7 && resultado <= 26.8){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 26.9){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }else if (idade == 15){
-                        if(resultado <= 19.9 && resultado <= 23.6){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 23.6 && resultado <= 27.6){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 27.7){
-                            img.setImageResource(R.drawable.imc_c03);
+
+                    }else if (sexo.equals("F")){
+                        String resultadoFormat = String.format("%.02f", resultado);
+                        lblResultado.setText("IMC: " + resultadoFormat);
+                        lblResultado2.setText("");
+
+                        if(idade == 6){
+                            if(resultado <= 14.3 && resultado <= 16.1){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 16.1 && resultado <= 17.3){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 17.4){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 7){
+                            if(resultado <= 14.9 && resultado <= 17.1){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 17.1 && resultado <= 18.8){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 18.9){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 8){
+                            if(resultado <= 15.6 && resultado <= 18.1){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 18.1 && resultado <= 20.2){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 20.3){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 9){
+                            if(resultado <= 16.3 && resultado <= 19.1){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 19.1 && resultado <= 21.6){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 21.7){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 10){
+                            if(resultado <= 17 && resultado <= 20.1){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 20.1 && resultado <= 23.1){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 23.2){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 11){
+                            if(resultado <= 17.6 && resultado <= 21.1){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 21.1 && resultado <= 24.4){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 24.5){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 12){
+                            if(resultado <= 18.3 && resultado <= 22.1){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 22.1 && resultado <= 25.8){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 25.9){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 13){
+                            if(resultado <= 18.9 && resultado <= 23){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 23 && resultado <= 27.6){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 27.7){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 14){
+                            if(resultado <= 19.3 && resultado <= 23.8){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 23.8 && resultado <= 27.8){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 27.9){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else if (idade == 15){
+                            if(resultado <= 19.6 && resultado <= 24.2){
+                                img.setImageResource(R.drawable.imc_c01);
+                            }else if(resultado > 24.2 && resultado <= 28.7){
+                                img.setImageResource(R.drawable.imc_c02);
+                            }else if(resultado >= 28.8){
+                                img.setImageResource(R.drawable.imc_c03);
+                            }
+                        }else{
+                            lblResultado.setText("Não foi possível calcular.");
+                            lblResultado2.setText("");
                         }
                     }
-
-                }else if (sexo.equals("F")){
-                    if(idade == 6){
-                        if(resultado <= 14.3 && resultado <= 16.1){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 16.1 && resultado <= 17.3){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 17.4){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }else if (idade == 7){
-                        if(resultado <= 14.9 && resultado <= 17.1){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 17.1 && resultado <= 18.8){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 18.9){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }else if (idade == 8){
-                        if(resultado <= 15.6 && resultado <= 18.1){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 18.1 && resultado <= 20.2){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 20.3){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }else if (idade == 9){
-                        if(resultado <= 16.3 && resultado <= 19.1){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 19.1 && resultado <= 21.6){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 21.7){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }else if (idade == 10){
-                        if(resultado <= 17 && resultado <= 20.1){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 20.1 && resultado <= 23.1){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 23.2){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }else if (idade == 11){
-                        if(resultado <= 17.6 && resultado <= 21.1){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 21.1 && resultado <= 24.4){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 24.5){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }else if (idade == 12){
-                        if(resultado <= 18.3 && resultado <= 22.1){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 22.1 && resultado <= 25.8){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 25.9){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }else if (idade == 13){
-                        if(resultado <= 18.9 && resultado <= 23){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 23 && resultado <= 27.6){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 27.7){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }else if (idade == 14){
-                        if(resultado <= 19.3 && resultado <= 23.8){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 23.8 && resultado <= 27.8){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 27.9){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }else if (idade == 15){
-                        if(resultado <= 19.6 && resultado <= 24.2){
-                            img.setImageResource(R.drawable.imc_c01);
-                        }else if(resultado > 24.2 && resultado <= 28.7){
-                            img.setImageResource(R.drawable.imc_c02);
-                        }else if(resultado >= 28.8){
-                            img.setImageResource(R.drawable.imc_c03);
-                        }
-                    }
                 }
-                String resultadoFormat = String.format("%.02f", resultado);
-                lblResultado.setText("IMC: " + resultadoFormat);
             }else{
                 if(resultado < 17){
                     img.setImageResource(R.drawable.imc01);
@@ -311,7 +329,8 @@ public class MainActivity extends AppCompatActivity {
                 float peso_ideal = 21 * (altura * altura);
                 String resultadoFormat = String.format("%.02f", resultado);
                 String pesoidealFormat = String.format("%.02f", peso_ideal);
-                lblResultado.setText("IMC: " + resultadoFormat + "\n" + "Peso Ideal: " + pesoidealFormat );
+                lblResultado.setText("IMC: " + resultadoFormat);
+                lblResultado2.setText("Peso Ideal: " + pesoidealFormat);
             }
         }
     }
